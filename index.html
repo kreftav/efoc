@@ -24,6 +24,13 @@ tailwind.config = { theme: { extend: {
   .masonry figure{break-inside:avoid;margin-bottom:1rem}
   @media(prefers-reduced-motion:reduce){*{transition:none!important}}
   :focus-visible{outline:3px solid #E6A100;outline-offset:2px}
+.canopy{height:56px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'><path fill='%231E3A1A' d='M0 60V46h10l10-26 10 26h10L52 6l12 40h12l12-22 12 22h10v14z'/></svg>") repeat-x bottom/120px 56px}.canopy-l{height:56px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'><path fill='%23F8F6F0' d='M0 60V46h10l10-26 10 26h10L52 6l12 40h12l12-22 12 22h10v14z'/></svg>") repeat-x bottom/120px 56px}.canopy-p{height:56px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'><path fill='%232D5A27' d='M0 60V46h10l10-26 10 26h10L52 6l12 40h12l12-22 12 22h10v14z'/></svg>") repeat-x bottom/120px 56px}.canopy-d{height:56px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'><path fill='%231E3A1A' d='M0 60V46h10l10-26 10 26h10L52 6l12 40h12l12-22 12 22h10v14z'/></svg>") repeat-x bottom/120px 56px}
+  .leaf{position:absolute;top:-30px;width:16px;height:16px;background:#4C8A3F;border-radius:0 100% 0 100%;opacity:.7;animation:fall linear infinite}
+  .fly{position:absolute;width:6px;height:6px;border-radius:50%;background:#E6A100;box-shadow:0 0 10px 3px #E6A100;animation:glow ease-in-out infinite}
+  @keyframes fall{to{transform:translate(60px,110vh) rotate(540deg)}}
+  @keyframes glow{0%,100%{opacity:.1;transform:translateY(0)}50%{opacity:1;transform:translateY(-14px)}}
+  @media(prefers-reduced-motion:reduce){.leaf,.fly{animation:none}}
+  .trunks{background-image:linear-gradient(90deg,rgba(122,82,48,.25),rgba(122,82,48,.55) 50%,rgba(122,82,48,.25)),linear-gradient(90deg,rgba(122,82,48,.25),rgba(122,82,48,.55) 50%,rgba(122,82,48,.25)),linear-gradient(90deg,rgba(122,82,48,.25),rgba(122,82,48,.55) 50%,rgba(122,82,48,.25)),linear-gradient(90deg,rgba(122,82,48,.25),rgba(122,82,48,.55) 50%,rgba(122,82,48,.25)),linear-gradient(90deg,rgba(122,82,48,.25),rgba(122,82,48,.55) 50%,rgba(122,82,48,.25)),linear-gradient(90deg,rgba(122,82,48,.25),rgba(122,82,48,.55) 50%,rgba(122,82,48,.25));background-repeat:no-repeat;background-size:8px 100%,4px 100%,12px 100%,5px 100%,10px 100%,4px 100%;background-position:.5% 0,2.6% 0,99.5% 0,97.2% 0,95.4% 0,1.6% 0}
 </style>
 </head>
 <body class="bg-bg text-stone-800 font-sans antialiased">
@@ -37,6 +44,7 @@ tailwind.config = { theme: { extend: {
       <a href="#filosofia" class="hover:text-highlight">Filosofia</a>
       <a href="#disciplinas" class="hover:text-highlight">Disciplinas</a>
       <a href="#galeria" class="hover:text-highlight">Galeria VIVA</a>
+      <a href="#valores" class="hover:text-highlight">Valores</a>
       <a href="#faq" class="hover:text-highlight">Perguntas Frequentes</a>
       <a href="#visita" class="bg-highlight text-dark px-5 py-2.5 rounded-full font-bold shadow hover:bg-amber-500">Agende uma Visita</a>
     </nav>
@@ -47,14 +55,16 @@ tailwind.config = { theme: { extend: {
     <a href="#filosofia" class="py-2">Filosofia</a>
     <a href="#disciplinas" class="py-2">Disciplinas</a>
     <a href="#galeria" class="py-2">Galeria VIVA</a>
+    <a href="#valores" class="py-2">Valores</a>
     <a href="#faq" class="py-2">Perguntas Frequentes</a>
     <a href="#visita" class="bg-highlight text-dark text-center px-5 py-3 rounded-full font-bold mt-2">Agende uma Visita</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<section id="inicio" class="bg-dark text-white">
-  <div class="max-w-6xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
+<section id="inicio" class="relative overflow-hidden text-white" style="background:linear-gradient(rgba(30,58,26,.86),rgba(20,42,18,.96)),url(foto6.jpg) center/cover">
+  <div id="fx" class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-4 pt-16 pb-28 lg:pt-24 lg:pb-36 grid lg:grid-cols-2 gap-12 items-center">
     <div>
       <h1 class="font-display text-4xl sm:text-5xl font-bold leading-tight">Uma educação conectada com a natureza para formar mentes e corações.</h1>
       <p class="mt-6 text-lg text-green-100 max-w-xl">Na EFOC, o aprendizado vai além das paredes da sala de aula. Formamos corujeiros conscientes, autônomos e preparados para a vida.</p>
@@ -66,10 +76,11 @@ tailwind.config = { theme: { extend: {
     <!-- Troque por <video> se preferir -->
     <img src="foto4.jpg" alt="Alunos da EFOC em atividade prática ao ar livre, na floresta da escola" class="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover border-4 border-highlight/80">
   </div>
+  <div class="canopy-l absolute bottom-0 left-0 right-0 h-14"></div>
 </section>
 
 <!-- QUEM SOMOS -->
-<section id="filosofia" class="py-20">
+<section id="filosofia" class="trunks py-20">
   <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
     <img src="foto6.jpg" alt="Alunos reunidos no Espaço Sagrado, sob as árvores" class="rounded-3xl shadow-lg w-full aspect-square object-cover">
     <div>
@@ -85,7 +96,7 @@ tailwind.config = { theme: { extend: {
 </section>
 
 <!-- BNCC + DISCIPLINAS -->
-<section id="disciplinas" class="pb-20">
+<section id="disciplinas" class="trunks pb-20">
   <div class="max-w-6xl mx-auto px-4">
     <div class="bg-primary text-white rounded-3xl p-8 sm:p-12">
       <h2 class="font-display text-3xl sm:text-4xl font-bold">Aqui, o aprendizado ganha vida todos os dias!</h2>
@@ -120,24 +131,36 @@ tailwind.config = { theme: { extend: {
 </section>
 
 <!-- GALERIA -->
-<section id="galeria" class="pb-20">
+<div class="canopy"></div>
+<section id="galeria" class="bg-dark text-green-50 pb-20 pt-4">
   <div class="max-w-6xl mx-auto px-4">
-    <h2 class="font-display text-3xl sm:text-4xl font-bold text-primary">Galeria VIVA</h2>
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Galeria VIVA</h2>
     <p class="mt-3 text-lg max-w-2xl">Espaços da escola e atividades na floresta: experimentos, trilhas, rodas de conversa, arte e muito movimento.</p>
     <div class="masonry mt-10">
-      <figure><img src="foto1.jpg" alt="Show de Talentos: alunas se apresentando no palco decorado com folhas" class="rounded-2xl w-full" loading="lazy"></figure>
-      <figure><img src="foto2.jpg" alt="Crianças de capa de chuva e bota explorando a trilha em dia de chuva" class="rounded-2xl w-full" loading="lazy"></figure>
-      <figure><img src="foto5.jpg" alt="Aluno registrando observações no caderno, deitado na grama" class="rounded-2xl w-full" loading="lazy"></figure>
-      <figure><img src="foto4.jpg" alt="Experimento prático de equilíbrio e física ao ar livre" class="rounded-2xl w-full" loading="lazy"></figure>
-      <figure><img src="foto3.jpg" alt="Crianças caminhando pela trilha de terra com capas de chuva coloridas" class="rounded-2xl w-full" loading="lazy"></figure>
-      <figure><img src="foto6.jpg" alt="Roda de alunos no Espaço Sagrado" class="rounded-2xl w-full" loading="lazy"></figure>
-      <figure><img src="foto7.jpg" alt="Placas do Tribunal Ético e Conversa entre Troncos na árvore" class="rounded-2xl w-full" loading="lazy"></figure>
+      <figure><img src="foto1.jpg" alt="Show de Talentos: alunas se apresentando no palco decorado com folhas" class="rounded-2xl w-full border-4 border-white/90 shadow-lg" loading="lazy"></figure>
+      <figure><img src="foto2.jpg" alt="Crianças de capa de chuva e bota explorando a trilha em dia de chuva" class="rounded-2xl w-full border-4 border-white/90 shadow-lg" loading="lazy"></figure>
+      <figure><img src="foto5.jpg" alt="Aluno registrando observações no caderno, deitado na grama" class="rounded-2xl w-full border-4 border-white/90 shadow-lg" loading="lazy"></figure>
+      <figure><img src="foto4.jpg" alt="Experimento prático de equilíbrio e física ao ar livre" class="rounded-2xl w-full border-4 border-white/90 shadow-lg" loading="lazy"></figure>
+      <figure><img src="foto3.jpg" alt="Crianças caminhando pela trilha de terra com capas de chuva coloridas" class="rounded-2xl w-full border-4 border-white/90 shadow-lg" loading="lazy"></figure>
+      <figure><img src="foto6.jpg" alt="Roda de alunos no Espaço Sagrado" class="rounded-2xl w-full border-4 border-white/90 shadow-lg" loading="lazy"></figure>
+      <figure><img src="foto7.jpg" alt="Placas do Tribunal Ético e Conversa entre Troncos na árvore" class="rounded-2xl w-full border-4 border-white/90 shadow-lg" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
+<div class="canopy-l bg-dark"></div>
+<!-- VALORES: substitua os valores "R$ 000,00" pelos reais -->
+<section id="valores" class="trunks pb-20 pt-6">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-primary">Valores</h2>
+    <p class="mt-3 text-lg max-w-2xl">Escolha o formato que melhor se encaixa na rotina da sua família. Fale com a nossa equipe para conhecer as condições de matrícula.</p>
+    <div id="plans" class="mt-10 grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto"></div>
+    <p class="mt-6 text-sm text-stone-600">Matrícula e material didático: R$ 000,00.</p>
+  </div>
+</section>
+
 <!-- FAQ -->
-<section id="faq" class="pb-20">
+<section id="faq" class="trunks pb-20">
   <div class="max-w-3xl mx-auto px-4">
     <h2 class="font-display text-3xl sm:text-4xl font-bold text-primary">Perguntas Frequentes</h2>
     <div id="faqList" class="mt-8 space-y-3"></div>
@@ -145,42 +168,32 @@ tailwind.config = { theme: { extend: {
 </section>
 
 <!-- VISITA -->
-<section id="visita" class="bg-primary py-20">
+<div class="canopy-p"></div>
+<section id="visita" class="bg-primary pb-20 pt-6 text-center text-white">
   <div class="max-w-2xl mx-auto px-4">
-    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl">
-      <h2 class="font-display text-3xl font-bold text-primary">Agende uma Visita</h2>
-      <p class="mt-2 text-stone-600">Venha conhecer a floresta e conversar com a nossa equipe.</p>
-      <form id="visitForm" class="mt-6 grid gap-4">
-        <label class="grid gap-1 font-semibold">Nome do responsável
-          <input name="resp" required class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></label>
-        <label class="grid gap-1 font-semibold">Nome e idade da criança
-          <input name="crianca" required class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></label>
-        <label class="grid gap-1 font-semibold">WhatsApp
-          <input name="whats" type="tel" required placeholder="(54) 99999-9999" class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></label>
-        <label class="grid gap-1 font-semibold">Mensagem
-          <textarea name="msg" rows="3" class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></textarea></label>
-        <button class="bg-highlight text-dark font-bold py-3.5 rounded-full hover:bg-amber-500">Enviar pelo WhatsApp</button>
-      </form>
-    </div>
+    <h2 class="font-display text-3xl sm:text-4xl font-bold">Venha conhecer a nossa floresta</h2>
+    <p class="mt-3 text-lg text-green-100">Converse com a nossa equipe e marque o melhor dia para a sua família.</p>
+    <a href="https://wa.me/5554996350205?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20%C3%A0%20EFOC." target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-3 bg-highlight text-dark text-lg font-bold px-8 py-4 rounded-full shadow-xl hover:bg-amber-500"><i data-lucide="message-circle"></i> Agende uma Visita</a>
   </div>
 </section>
 
 <!-- FOOTER -->
+<div class="canopy-d bg-primary"></div>
 <footer class="bg-dark text-green-100">
-  <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-[1fr_1fr_1.5fr] gap-8">
     <div>
       <img src="logo.png" alt="Logo EFOC" class="h-20 w-auto bg-white rounded-xl p-2">
       <p class="mt-4 text-sm">Escola da Floresta Olho da Coruja. Aprender com a floresta. Criar para a vida.</p>
     </div>
     <div>
       <h3 class="font-bold text-white mb-3">Contato</h3>
-      <p class="flex gap-2 items-start"><i data-lucide="map-pin" class="w-5 h-5 shrink-0"></i> [Endereço da escola]</p>
+      <p class="flex gap-2 items-start"><i data-lucide="map-pin" class="w-5 h-5 shrink-0"></i> Passo Fundo, RS</p>
       <p class="flex gap-2 items-center mt-2"><i data-lucide="phone" class="w-5 h-5"></i> (54) 99635-0205</p>
       <p class="flex gap-2 items-center mt-2"><i data-lucide="mail" class="w-5 h-5"></i> [contato@efoc.com.br]</p>
     </div>
     <div>
-      <h3 class="font-bold text-white mb-3">Como chegar</h3>
-      <a href="https://www.google.com/maps/search/?api=1&query=Escola+da+Floresta+Olho+da+Coruja" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full hover:bg-white/20"><i data-lucide="map" class="w-5 h-5"></i> Abrir no Google Maps</a>
+      <h3 class="font-bold text-white mb-3">Localização</h3>
+      <iframe title="Mapa de Passo Fundo, RS" src="https://www.google.com/maps?q=Passo+Fundo,+RS&output=embed" class="w-full h-52 rounded-2xl border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
   </div>
   <p class="text-center text-sm py-4 border-t border-white/10">© <span id="year"></span> EFOC – Escola da Floresta Olho da Coruja. Todos os direitos reservados.</p>
@@ -201,7 +214,7 @@ const subjects = [
   ['palette','Arte','Criar, imaginar e transformar é também aprender!','Cores, formas, elementos naturais e sensibilidade.']
 ];
 document.getElementById('cards').innerHTML = subjects.map(s => `
-  <article class="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
+  <article class="bg-white rounded-2xl p-6 shadow-sm border border-stone-200 border-t-4 border-t-accent">
     <i data-lucide="${s[0]}" class="text-accent w-8 h-8"></i>
     <h3 class="mt-3 font-display text-xl font-bold text-primary">${s[1]}</h3>
     <p class="mt-2 font-semibold">${s[2]}</p>
@@ -234,12 +247,31 @@ document.querySelectorAll('#mobileMenu a').forEach(a => a.onclick = () => {
   const m = document.getElementById('mobileMenu'); m.classList.add('hidden'); m.classList.remove('flex');
 });
 
-document.getElementById('visitForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const d = new FormData(e.target);
-  const t = `Olá! Gostaria de agendar uma visita à EFOC.\nResponsável: ${d.get('resp')}\nCriança: ${d.get('crianca')}\nWhatsApp: ${d.get('whats')}\nE-mail: ${d.get('email')}\nMensagem: ${d.get('msg')}`;
-  window.open('https://wa.me/5554996350205?text=' + encodeURIComponent(t), '_blank');
-});
+const plans = [
+  ['Meio Período','Manhã ou tarde','R$ 000,00',['Currículo completo da BNCC','Aulas na sala e na floresta','Capoeira e Equitação incluídas','Filosofia, Inglês e Arte','Acompanhamento pedagógico'],false],
+  ['Período Integral','Dia completo na floresta','R$ 000,00',['Tudo do Meio Período','Vivências, oficinas e trilhas','Horta e laboratório','Mais tempo de convivência'],true]
+];
+document.getElementById('plans').innerHTML = plans.map(p => `
+  <article class="relative flex flex-col rounded-3xl p-8 ${p[4] ? 'bg-primary text-white shadow-2xl md:-translate-y-3 border-4 border-highlight' : 'bg-white border border-stone-200 shadow-sm'}">
+    ${p[4] ? '<span class="absolute -top-4 left-8 bg-highlight text-dark text-sm font-bold px-4 py-1 rounded-full">Mais procurado</span>' : ''}
+    <h3 class="font-display text-2xl font-bold ${p[4] ? '' : 'text-primary'}">${p[0]}</h3>
+    <p class="${p[4] ? 'text-green-100' : 'text-stone-600'}">${p[1]}</p>
+    <p class="mt-5 font-display text-4xl font-bold ${p[4] ? 'text-highlight' : 'text-accent'}">${p[2]}<span class="text-base font-sans font-semibold"> /mês</span></p>
+    <ul class="mt-6 space-y-3 flex-1">${p[3].map(f => `<li class="flex gap-2"><i data-lucide="leaf" class="w-5 h-5 shrink-0 ${p[4] ? 'text-highlight' : 'text-primary'}"></i>${f}</li>`).join('')}</ul>
+    <a href="#visita" class="mt-8 text-center font-bold py-3 rounded-full ${p[4] ? 'bg-highlight text-dark hover:bg-amber-500' : 'bg-primary text-white hover:bg-dark'}">Agendar Visita</a>
+  </article>`).join('');
+
+const fx = document.getElementById('fx');
+for (let i = 0; i < 14; i++) {
+  const l = document.createElement('span'); l.className = 'leaf';
+  l.style.cssText = `left:${Math.random()*100}%;animation-duration:${9+Math.random()*10}s;animation-delay:-${Math.random()*15}s;transform:scale(${.6+Math.random()})`;
+  fx.appendChild(l);
+}
+for (let i = 0; i < 12; i++) {
+  const f = document.createElement('span'); f.className = 'fly';
+  f.style.cssText = `left:${Math.random()*100}%;top:${20+Math.random()*60}%;animation-duration:${3+Math.random()*4}s;animation-delay:-${Math.random()*5}s`;
+  fx.appendChild(f);
+}
 document.getElementById('year').textContent = new Date().getFullYear();
 lucide.createIcons();
 </script>
