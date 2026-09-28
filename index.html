@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EFOC – Escola da Floresta Olho da Coruja</title>
+<meta name="description" content="Educação conectada com a natureza, com BNCC cumprida integralmente. Agende uma visita à EFOC.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:'#2D5A27', dark:'#1E3A1A', accent:'#7A5230', bg:'#F8F6F0', highlight:'#E6A100' },
+  fontFamily: { display:['Fraunces','serif'], sans:['Nunito','sans-serif'] }
+}}}
+</script>
+<style>
+  .faq-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .faq-item.open .faq-body{max-height:300px}
+  .faq-item.open .chev{transform:rotate(180deg)}
+  .masonry{columns:1;column-gap:1rem}
+  @media(min-width:640px){.masonry{columns:2}}
+  @media(min-width:1024px){.masonry{columns:3}}
+  .masonry figure{break-inside:avoid;margin-bottom:1rem}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  :focus-visible{outline:3px solid #E6A100;outline-offset:2px}
+</style>
+</head>
+<body class="bg-bg text-stone-800 font-sans antialiased">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200">
+  <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-2"><img src="logo.png" alt="Logo EFOC" class="h-16 w-auto"></a>
+    <nav class="hidden lg:flex items-center gap-7 font-semibold text-primary">
+      <a href="#inicio" class="hover:text-highlight">Início</a>
+      <a href="#filosofia" class="hover:text-highlight">Filosofia</a>
+      <a href="#disciplinas" class="hover:text-highlight">Disciplinas</a>
+      <a href="#galeria" class="hover:text-highlight">Galeria VIVA</a>
+      <a href="#faq" class="hover:text-highlight">Perguntas Frequentes</a>
+      <a href="#visita" class="bg-highlight text-dark px-5 py-2.5 rounded-full font-bold shadow hover:bg-amber-500">Agende uma Visita</a>
+    </nav>
+    <button id="menuBtn" class="lg:hidden p-2 text-primary" aria-label="Abrir menu"><i data-lucide="menu"></i></button>
+  </div>
+  <nav id="mobileMenu" class="hidden lg:hidden flex-col gap-1 px-4 pb-4 font-semibold text-primary bg-white">
+    <a href="#inicio" class="py-2">Início</a>
+    <a href="#filosofia" class="py-2">Filosofia</a>
+    <a href="#disciplinas" class="py-2">Disciplinas</a>
+    <a href="#galeria" class="py-2">Galeria VIVA</a>
+    <a href="#faq" class="py-2">Perguntas Frequentes</a>
+    <a href="#visita" class="bg-highlight text-dark text-center px-5 py-3 rounded-full font-bold mt-2">Agende uma Visita</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="inicio" class="bg-dark text-white">
+  <div class="max-w-6xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h1 class="font-display text-4xl sm:text-5xl font-bold leading-tight">Uma educação conectada com a natureza para formar mentes e corações.</h1>
+      <p class="mt-6 text-lg text-green-100 max-w-xl">Na EFOC, o aprendizado vai além das paredes da sala de aula. Formamos corujeiros conscientes, autônomos e preparados para a vida.</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#visita" class="bg-highlight text-dark font-bold px-7 py-3.5 rounded-full hover:bg-amber-500">Agendar Visita</a>
+        <a href="#disciplinas" class="border-2 border-white/70 font-bold px-7 py-3.5 rounded-full hover:bg-white hover:text-dark">Conhecer a Metodologia</a>
+      </div>
+    </div>
+    <!-- Troque por <video> se preferir -->
+    <img src="foto4.jpg" alt="Alunos da EFOC em atividade prática ao ar livre, na floresta da escola" class="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover border-4 border-highlight/80">
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="filosofia" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+    <img src="foto6.jpg" alt="Alunos reunidos no Espaço Sagrado, sob as árvores" class="rounded-3xl shadow-lg w-full aspect-square object-cover">
+    <div>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-primary">A Escola da Floresta Olho da Coruja</h2>
+      <p class="mt-5 text-lg leading-relaxed">A coruja observa com atenção, escuta em silêncio e enxerga onde outros não veem. É com esse olhar que a EFOC ensina: a floresta é sala de aula, laboratório, biblioteca e espaço de convivência.</p>
+      <p class="mt-4 text-lg leading-relaxed">Nossos alunos são os <strong class="text-accent">Corujeiros</strong>: crianças e jovens curiosos, que cuidam do lugar onde vivem, aprendem a conviver e assumem o protagonismo da própria jornada.</p>
+      <blockquote class="mt-8 bg-primary text-white rounded-2xl p-6 border-l-8 border-highlight">
+        <p class="font-display text-2xl">Aprender com a floresta. Criar para a vida.</p>
+        <p class="mt-1 text-green-100 text-sm">Manifesto EFOC</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- BNCC + DISCIPLINAS -->
+<section id="disciplinas" class="pb-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="bg-primary text-white rounded-3xl p-8 sm:p-12">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold">Aqui, o aprendizado ganha vida todos os dias!</h2>
+      <p class="mt-5 text-lg max-w-3xl text-green-50">Na EFOC, respeitamos e cumprimos integralmente as diretrizes da BNCC (Base Nacional Comum Curricular), mas de uma forma totalmente diferente e transformadora: com o apoio direto da floresta e do ambiente natural.</p>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white/10 rounded-2xl p-5"><i data-lucide="sparkles" class="text-highlight"></i><p class="mt-3 font-bold">1. Despertar a curiosidade</p></div>
+        <div class="bg-white/10 rounded-2xl p-5"><i data-lucide="brain" class="text-highlight"></i><p class="mt-3 font-bold">2. Estimular o pensamento crítico</p></div>
+        <div class="bg-white/10 rounded-2xl p-5"><i data-lucide="heart-handshake" class="text-highlight"></i><p class="mt-3 font-bold">3. Promover o respeito à vida e ao meio ambiente</p></div>
+        <div class="bg-white/10 rounded-2xl p-5"><i data-lucide="flag" class="text-highlight"></i><p class="mt-3 font-bold">4. Formar alunos conscientes e protagonistas</p></div>
+      </div>
+    </div>
+
+    <div id="cards" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+
+    <div class="mt-14 bg-dark text-white rounded-3xl p-8 sm:p-12">
+      <h3 class="font-display text-2xl sm:text-3xl font-bold">Práticas Corporais</h3>
+      <p class="mt-2 text-green-100">Movimento, cultura e cuidado com o corpo em contato com a natureza.</p>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="bg-white/10 rounded-2xl p-6">
+          <i data-lucide="music" class="text-highlight"></i>
+          <h4 class="mt-3 font-display text-xl font-bold">Capoeira</h4>
+          <p class="mt-2 text-green-50">Movimento, ritmo, musicalidade, expressão corporal e valorização da cultura em meio à natureza.</p>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-6">
+          <i data-lucide="footprints" class="text-highlight"></i>
+          <h4 class="mt-3 font-display text-xl font-bold">Equitação</h4>
+          <p class="mt-2 text-green-50">Conexão sensível com os animais, desenvolvimento de equilíbrio, coordenação, postura, empatia e autoconfiança.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria" class="pb-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-primary">Galeria VIVA</h2>
+    <p class="mt-3 text-lg max-w-2xl">Espaços da escola e atividades na floresta: experimentos, trilhas, rodas de conversa, arte e muito movimento.</p>
+    <div class="masonry mt-10">
+      <figure><img src="foto1.jpg" alt="Show de Talentos: alunas se apresentando no palco decorado com folhas" class="rounded-2xl w-full" loading="lazy"></figure>
+      <figure><img src="foto2.jpg" alt="Crianças de capa de chuva e bota explorando a trilha em dia de chuva" class="rounded-2xl w-full" loading="lazy"></figure>
+      <figure><img src="foto5.jpg" alt="Aluno registrando observações no caderno, deitado na grama" class="rounded-2xl w-full" loading="lazy"></figure>
+      <figure><img src="foto4.jpg" alt="Experimento prático de equilíbrio e física ao ar livre" class="rounded-2xl w-full" loading="lazy"></figure>
+      <figure><img src="foto3.jpg" alt="Crianças caminhando pela trilha de terra com capas de chuva coloridas" class="rounded-2xl w-full" loading="lazy"></figure>
+      <figure><img src="foto6.jpg" alt="Roda de alunos no Espaço Sagrado" class="rounded-2xl w-full" loading="lazy"></figure>
+      <figure><img src="foto7.jpg" alt="Placas do Tribunal Ético e Conversa entre Troncos na árvore" class="rounded-2xl w-full" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="pb-20">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-primary">Perguntas Frequentes</h2>
+    <div id="faqList" class="mt-8 space-y-3"></div>
+  </div>
+</section>
+
+<!-- VISITA -->
+<section id="visita" class="bg-primary py-20">
+  <div class="max-w-2xl mx-auto px-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl">
+      <h2 class="font-display text-3xl font-bold text-primary">Agende uma Visita</h2>
+      <p class="mt-2 text-stone-600">Venha conhecer a floresta e conversar com a nossa equipe.</p>
+      <form id="visitForm" class="mt-6 grid gap-4">
+        <label class="grid gap-1 font-semibold">Nome do responsável
+          <input name="resp" required class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></label>
+        <label class="grid gap-1 font-semibold">Nome e idade da criança
+          <input name="crianca" required class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></label>
+        <label class="grid gap-1 font-semibold">WhatsApp
+          <input name="whats" type="tel" required placeholder="(54) 99999-9999" class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></label>
+        <label class="grid gap-1 font-semibold">E-mail
+          <input name="email" type="email" required class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></label>
+        <label class="grid gap-1 font-semibold">Mensagem
+          <textarea name="msg" rows="3" class="border border-stone-300 rounded-xl px-4 py-3 font-normal"></textarea></label>
+        <button class="bg-highlight text-dark font-bold py-3.5 rounded-full hover:bg-amber-500">Enviar pelo WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-green-100">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
+    <div>
+      <img src="logo.png" alt="Logo EFOC" class="h-20 w-auto bg-white rounded-xl p-2">
+      <p class="mt-4 text-sm">Escola da Floresta Olho da Coruja. Aprender com a floresta. Criar para a vida.</p>
+    </div>
+    <div>
+      <h3 class="font-bold text-white mb-3">Contato</h3>
+      <p class="flex gap-2 items-start"><i data-lucide="map-pin" class="w-5 h-5 shrink-0"></i> [Endereço da escola], Francisco Beltrão – PR</p>
+      <p class="flex gap-2 items-center mt-2"><i data-lucide="phone" class="w-5 h-5"></i> (54) 99635-0205</p>
+      <p class="flex gap-2 items-center mt-2"><i data-lucide="mail" class="w-5 h-5"></i> [contato@efoc.com.br]</p>
+    </div>
+    <div>
+      <h3 class="font-bold text-white mb-3">Como chegar</h3>
+      <a href="https://www.google.com/maps/search/?api=1&query=Escola+da+Floresta+Olho+da+Coruja" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full hover:bg-white/20"><i data-lucide="map" class="w-5 h-5"></i> Abrir no Google Maps</a>
+    </div>
+  </div>
+  <p class="text-center text-sm py-4 border-t border-white/10">© <span id="year"></span> EFOC – Escola da Floresta Olho da Coruja. Todos os direitos reservados.</p>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5554996350205?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20EFOC." target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="fixed bottom-5 right-5 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600"><i data-lucide="message-circle" class="w-7 h-7"></i></a>
+
+<script>
+const subjects = [
+  ['book-open','Língua Portuguesa e Literatura','Palavras que conectam, histórias que transformam.','Leitura na sala, no redário e na natureza.'],
+  ['calculator','Matemática','Aprender, explorar e descobrir conexões!','Números, medidas e padrões no mundo real.'],
+  ['flask-conical','Ciências na Prática','Experimentar, observar, compreender e transformar!','Pesquisas na horta, laboratório, trilhas e floresta.'],
+  ['globe','História e Geografia','Conhecer o passado, compreender o presente e transformar o futuro!','Conexão com a terra, o mundo e a comunidade.'],
+  ['languages','Língua Inglesa','A música como aliada para aprender!','"Here we learn, here we grow, with English everywhere we go!"'],
+  ['messages-square','Filosofia','A Filosofia nasce no encontro com a vida!','Rodas de conversa, ética, escuta e empatia.'],
+  ['hand-heart','Ensino Religioso','Refletir, respeitar e viver valores que transformam.','Gratidão, acolhimento, respeito às crenças e compaixão.'],
+  ['palette','Arte','Criar, imaginar e transformar é também aprender!','Cores, formas, elementos naturais e sensibilidade.']
+];
+document.getElementById('cards').innerHTML = subjects.map(s => `
+  <article class="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
+    <i data-lucide="${s[0]}" class="text-accent w-8 h-8"></i>
+    <h3 class="mt-3 font-display text-xl font-bold text-primary">${s[1]}</h3>
+    <p class="mt-2 font-semibold">${s[2]}</p>
+    <p class="mt-2 text-sm text-stone-600">${s[3]}</p>
+  </article>`).join('');
+
+const faqs = [
+  ['Como a escola garante o cumprimento da BNCC estando na natureza?','Todo o planejamento parte das competências e habilidades da BNCC. A floresta, a horta e as trilhas são o cenário e o recurso das aulas, e o desenvolvimento dos alunos é acompanhado e avaliado ao longo do ano.'],
+  ['O que acontece em dias de chuva?','As atividades continuam. Com capa de chuva e bota, as crianças exploram a trilha e observam a natureza de outro jeito. Quando o clima não permite atividades externas, as aulas acontecem nos espaços cobertos da escola.'],
+  ['A partir de qual idade os alunos praticam equitação e capoeira?','As práticas são adaptadas a cada faixa etária, sempre com acompanhamento de profissionais. Fale com a nossa equipe para saber a idade e a turma de cada modalidade.'],
+  ['Como funciona a segurança durante as atividades na floresta?','As atividades são planejadas com antecedência, com espaços e trilhas conhecidos, regras combinadas com os alunos e acompanhamento constante de educadores. Consulte a equipe para conhecer os protocolos em detalhe.']
+];
+document.getElementById('faqList').innerHTML = faqs.map(f => `
+  <div class="faq-item bg-white rounded-2xl border border-stone-200">
+    <button class="w-full flex justify-between items-center gap-4 text-left p-5 font-bold text-primary" aria-expanded="false">
+      ${f[0]}<i data-lucide="chevron-down" class="chev shrink-0 transition-transform"></i>
+    </button>
+    <div class="faq-body"><p class="px-5 pb-5 text-stone-700">${f[1]}</p></div>
+  </div>`).join('');
+document.querySelectorAll('.faq-item button').forEach(b => b.addEventListener('click', () => {
+  const item = b.parentElement, open = item.classList.toggle('open');
+  b.setAttribute('aria-expanded', open);
+}));
+
+document.getElementById('menuBtn').onclick = () => {
+  const m = document.getElementById('mobileMenu');
+  m.classList.toggle('hidden'); m.classList.toggle('flex');
+};
+document.querySelectorAll('#mobileMenu a').forEach(a => a.onclick = () => {
+  const m = document.getElementById('mobileMenu'); m.classList.add('hidden'); m.classList.remove('flex');
+});
+
+document.getElementById('visitForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const d = new FormData(e.target);
+  const t = `Olá! Gostaria de agendar uma visita à EFOC.\nResponsável: ${d.get('resp')}\nCriança: ${d.get('crianca')}\nWhatsApp: ${d.get('whats')}\nE-mail: ${d.get('email')}\nMensagem: ${d.get('msg')}`;
+  window.open('https://wa.me/5554996350205?text=' + encodeURIComponent(t), '_blank');
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+lucide.createIcons();
+</script>
+</body>
+</html>
